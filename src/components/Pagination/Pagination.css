@@ -1,8 +1,7 @@
-.search {
+.pagination-ctn {
   background-color: #a892ee;
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 2rem auto;
-  max-width: 95%;
+  max-width: 20%;
   border-radius: 12px;
-  /* text-align: center; */
 }

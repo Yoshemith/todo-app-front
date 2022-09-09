@@ -1,0 +1,16 @@
+.btn-container {
+  margin: 2rem;
+}
+
+.btn-colour-1 {
+  color: #fff;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  border-radius: 8px;
+}
+
+.todo-btn {
+  padding-left: 40px;
+  padding-right: 40px;
+  font-weight: bold;
+}

@@ -1,0 +1,32 @@
+.labels {
+  font-weight: bold;
+}
+
+.name-help {
+  font-size: 11px;
+}
+
+.search-btn {
+  position: absolute;
+  right: 12px;
+  bottom: 0;
+  padding-right: 45px;
+  padding-left: 45px;
+}
+
+.search-btn-container {
+  position: relative;
+}
+
+@media (max-width: 550px) {
+  .search-btn {
+    position: initial;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .search-btn-container {
+    position: initial;
+    padding-top: 12px;
+  }
+}
