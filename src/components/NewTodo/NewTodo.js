@@ -3,25 +3,20 @@ import "./NewTodo.css";
 import Modal from "../UI/Modal";
 
 const NewTodo = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   const toggleModalHandler = () => {
-    console.log("toggle", isOpen);
-    setIsOpen(!isOpen);
+    setIsModalOpen(!isModalOpen);
   };
 
   const addNewTodoHandler = (e) => {
     e.preventDefault();
-
-    //HERE GOES THE LOGIC TO CREATE A NEW TODO
-
-    setIsOpen(!isOpen);
-    console.log("Creando todo aqui!");
+    setIsModalOpen(!isModalOpen);
   };
 
   return (
     <div>
-      {isOpen && (
+      {isModalOpen && (
         <Modal
           title={"Create a New To-Do"}
           action={addNewTodoHandler}

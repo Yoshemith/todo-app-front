@@ -1,14 +1,10 @@
 import { useState } from "react";
 import classes from "./Modal.module.css";
+import { createTodo } from "../../services/apiServices";
 
 const Modal = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [selectedPriority, setSelectedPriority] = useState("HIGH");
-
-  /*  const createTodoHandler = (e) => {
-    e.preventDefault();
-    console.log("Create onSubmit");
-  }; */
 
   const nameChangeHandler = (e) => {
     setEnteredName(e.target.value);
@@ -16,6 +12,21 @@ const Modal = (props) => {
 
   const priorityChangeHandler = (e) => {
     setSelectedPriority(e.target.value);
+  };
+
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    console.log(e.target.value);
+
+    let saveNewTodo = createTodo({
+      name: enteredName,
+      priority: selectedPriority,
+    });
+
+    saveNewTodo.then((data) => {
+      console.log(data);
+      props.quit();
+    });
   };
 
   return (
@@ -27,7 +38,7 @@ const Modal = (props) => {
         </header>
         <div className={classes.content}>
           {/* <p>"random message"</p> */}
-          <form onSubmit={props.action}>
+          <form onSubmit={onSubmitForm}>
             <div className="mb-2">
               <label htmlFor="name" className="form-label labels">
                 Name
@@ -64,7 +75,6 @@ const Modal = (props) => {
                   <option value="LOW">Low</option>
                 </select>
               </div>
-              <div className="col-sm-4"></div>
               <div className="col-sm-4 search-btn-container">
                 <button type="submit" className="btn btn-primary search-btn">
                   Create
