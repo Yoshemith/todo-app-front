@@ -19,6 +19,12 @@ You may also see any lint errors in the console.
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
+### `NOTES`
+
+There's only one functionlaity working on the frontend and that is POST to the backend.\
+We can only create a todo task, there is some validations to be made still.
+I'm still working on the search controls and the render of all the items.
+
 ### `npm run build`
 
 Builds the app for production to the `build` folder.\
