@@ -1,11 +1,12 @@
+import Card from "../UI/Card";
 import TodoTable from "./TodoTable";
-import "./TodoTableContainer.css";
+import classes from "./TodoTableContainer.module.css";
 
 const TodoTableContainer = () => {
   return (
-    <div className="todo-table-container">
+    <Card className={classes.tableContainer}>
       <TodoTable />
-    </div>
+    </Card>
   );
 };
 

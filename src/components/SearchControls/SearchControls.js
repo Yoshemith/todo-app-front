@@ -1,11 +1,12 @@
 import "./SearchControls.css";
 import SearchForm from "./SearchForm";
+import Card from "../UI/Card";
 
 const SearchControls = () => {
   return (
-    <div className="search">
+    <Card>
       <SearchForm />
-    </div>
+    </Card>
   );
 };
 
