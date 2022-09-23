@@ -5,6 +5,8 @@ import { createTodo } from "../../services/apiServices";
 const Modal = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [selectedPriority, setSelectedPriority] = useState("HIGH");
+  const [isInputValid, setIsInputValid] = useState(true);
+  const [messageTip, setMessageTip] = useState(""); //'Ex. "Buy Groceries", "Finish React Course", etcetera.'
 
   const nameChangeHandler = (e) => {
     setEnteredName(e.target.value);
@@ -17,6 +19,21 @@ const Modal = (props) => {
   const onSubmitForm = (e) => {
     e.preventDefault();
     console.log(e.target.value);
+
+    if (enteredName.length === 0) {
+      console.log("empty");
+      setIsInputValid(false);
+      setMessageTip("Please enter a valid name!");
+      return;
+    }
+    if (enteredName.length > 120) {
+      console.log("too much text");
+      setIsInputValid(false);
+      setMessageTip(
+        "Only values accepted are less than 120 characters long. Please Try again!"
+      );
+      return;
+    }
 
     let saveNewTodo = createTodo({
       name: enteredName,
@@ -45,7 +62,9 @@ const Modal = (props) => {
               </label>
               <input
                 type="text"
-                className="form-control"
+                className={`form-control ${
+                  !isInputValid ? "border-danger" : ""
+                }`}
                 id="name"
                 aria-describedby="nameHelp"
                 placeholder="Add the name..."
@@ -54,9 +73,13 @@ const Modal = (props) => {
               />
               <div
                 id="nameHelp"
-                className="form-text text-light text-sm-left name-help"
+                className={`form-text text-sm-left name-help ${
+                  !isInputValid ? "text-danger" : "text-dark"
+                }`}
               >
-                Ex. "Buy Groceries", "Finish React Course", etcetera.
+                {isInputValid
+                  ? 'Ex. "Buy Groceries", "Finish React Course", etcetera.'
+                  : messageTip}
               </div>
             </div>
             <div className="row">
