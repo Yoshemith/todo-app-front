@@ -21,13 +21,11 @@ const Modal = (props) => {
     console.log(e.target.value);
 
     if (enteredName.length === 0) {
-      console.log("empty");
       setIsInputValid(false);
       setMessageTip("Please enter a valid name!");
       return;
     }
     if (enteredName.length > 120) {
-      console.log("too much text");
       setIsInputValid(false);
       setMessageTip(
         "Only values accepted are less than 120 characters long. Please Try again!"
@@ -45,6 +43,8 @@ const Modal = (props) => {
       props.quit();
     });
   };
+
+  //TODO: ADD DATE PICKER IN THE FORM
 
   return (
     <div>

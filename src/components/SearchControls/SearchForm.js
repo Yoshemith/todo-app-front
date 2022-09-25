@@ -10,14 +10,6 @@ const SearchForm = () => {
 
   const searchTodoHandler = (e) => {
     e.preventDefault();
-    if (enteredName.length === 0) {
-      console.log("empty");
-      setError({
-        title: "Invalid input",
-        message: "Please enter a valid name!",
-      });
-      return;
-    }
     if (enteredName.length > 120) {
       console.log("too much text");
       setError({
